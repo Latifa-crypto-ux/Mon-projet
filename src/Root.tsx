@@ -14,9 +14,9 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
         defaultProps={{
-          whatsapp: "+227 XX XX XX XX",
-          price: "Prix promo : XXXX FCFA",
-          seller: "Distributeur indépendant Forever",
+          whatsapp: "+227 82 42 41 44",
+          price: "",
+          seller: "Foreverbytifa · Distributeur indépendant Forever",
         }}
       />
       <Composition
