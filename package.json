@@ -1,0 +1,33 @@
+{
+  "name": "mon-projet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "remotion studio",
+    "render": "remotion render HelloWorld out/video.mp4",
+    "upgrade": "remotion upgrade"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Latifa-crypto-ux/Mon-projet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Latifa-crypto-ux/Mon-projet/issues"
+  },
+  "homepage": "https://github.com/Latifa-crypto-ux/Mon-projet#readme",
+  "dependencies": {
+    "@remotion/cli": "^4.0.544",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.544"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
