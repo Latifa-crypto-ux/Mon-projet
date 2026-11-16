@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "remotion studio",
     "render": "remotion render HelloWorld out/video.mp4",
-    "upgrade": "remotion upgrade"
+    "upgrade": "remotion upgrade",
+    "render:forever": "remotion render ForeverBright out/forever-bright.mp4 --crf=16"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/Latifa-crypto-ux/Mon-projet#readme",
   "dependencies": {
     "@remotion/cli": "^4.0.544",
+    "@remotion/google-fonts": "^4.0.544",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "remotion": "^4.0.544"
