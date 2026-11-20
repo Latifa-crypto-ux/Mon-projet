@@ -1,0 +1,62 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #FFD23F; font-family: "Nunito", sans-serif; color: #1B1410; }
+    #s3-world { position: absolute; inset: 0; }
+    .s3-tag { position: absolute; left: 192px; top: 200px; font-weight: 900; font-size: 44px; white-space: nowrap; }
+    .s3-big { position: absolute; left: 192px; top: 300px; font-family: "Archivo Black", sans-serif; font-size: 150px; line-height: 0.95; white-space: nowrap; }
+    .s3-big > span { position: relative; display: block; width: fit-content; }
+    .s3-big .w { display: inline-block; }
+    .s3-ic { position: absolute; width: 110px; height: 66px; }
+    #s3-pin { position: absolute; left: 1540px; top: 700px; width: 120px; height: 160px; }
+    #s3-new .w, #s3-tag2, #s3-pin { opacity: 0; }
+    #s3-new .w { filter: blur(8px); }
+    .mk { position: absolute; left: -2%; width: 104%; height: 24px; border-radius: 12px; background: #E0262D; transform-origin: 0% 50%; font-style: normal; }
+    .w { font-style: normal; }
+  </style>
+  <div id="root" data-composition-id="s3" data-width="1920" data-height="1080">
+    <div id="s3-world">
+      <div class="s3-ics" data-layout-ignore>
+        <svg class="s3-ic" style="left: 1500px; top: 140px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1700px; top: 330px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1450px; top: 520px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1720px; top: 640px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1200px; top: 860px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 900px; top: 940px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 560px; top: 880px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 220px; top: 930px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1100px; top: 90px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 700px; top: 70px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1780px; top: 900px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+        <svg class="s3-ic" style="left: 1550px; top: 960px" viewBox="0 0 200 120"><use href="#s3-c"/></svg>
+      </div>
+      <svg id="s3-pin" viewBox="0 0 120 160"><path d="M60 156 Q8 90 8 58 A52 52 0 0 1 112 58 Q112 90 60 156 Z" fill="#E0262D"/><circle cx="60" cy="58" r="22" fill="#FFD23F"/></svg>
+      <div class="s3-tag" id="s3-tag1">Idée reçue</div>
+      <div class="s3-tag" id="s3-tag2">La règle</div>
+      <div class="s3-big" id="s3-old">
+        <span>IL FAUT ÊTRE<i class="mk" style="top: 60px;"></i></span>
+        <span>PARTOUT<i class="mk" style="top: 60px;"></i></span>
+      </div>
+      <div class="s3-big" id="s3-new">
+        <span><i class="w">SOIS</i> <i class="w">LÀ</i> <i class="w">OÙ</i></span>
+        <span><i class="w">SONT</i> <i class="w">TES</i> <i class="w" style="position: relative">CLIENTS<i class="mk" style="top: 132px;"></i></i></span>
+      </div>
+    </div>
+    <svg width="0" height="0" style="position:absolute"><defs><g id="s3-c">
+      <path d="M8 92 Q14 42 58 30 Q100 6 142 30 Q186 42 192 92 Q170 74 150 76 Q138 102 100 104 Q62 102 50 76 Q30 74 8 92 Z" fill="#C8782E"/>
+    </g></defs></svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s3-old", { opacity: 0, scale: 1.1, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power4.out" }, 0.05);
+    tl.fromTo(".s3-ic", { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(1.6)", stagger: 0.04 }, 0.2);
+    tl.fromTo("#s3-old .mk", { scaleX: 0, rotation: -1 }, { scaleX: 1, rotation: -1, duration: 0.3, ease: "power2.out", stagger: 0.12 }, 1.7);
+    tl.to("#s3-old, #s3-tag1", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 2.25);
+    tl.to("#s3-tag2", { opacity: 1, duration: 0.15 }, 2.4);
+    tl.to("#s3-new .w", { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out", stagger: 0.09 }, 2.4);
+    tl.fromTo("#s3-new .mk", { scaleX: 0, rotation: -1 }, { scaleX: 1, rotation: -1, duration: 0.35, ease: "power2.out" }, 3.05);
+    tl.to(".s3-ic", { x: (i, el) => 1545 - parseFloat(el.style.left), y: (i, el) => 735 - parseFloat(el.style.top), scale: 0.4, opacity: 0, duration: 0.45, ease: "power3.in", stagger: 0.015 }, 3.2);
+    tl.fromTo("#s3-pin", { opacity: 0, scale: 0, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.8)" }, 3.6);
+    tl.to("#s3-world", { x: -1920, filter: "blur(20px)", duration: 0.4, ease: "power3.in" }, 4.6);
+    window.__timelines["s3"] = tl;
+  </script>
+</template>

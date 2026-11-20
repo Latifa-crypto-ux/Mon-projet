@@ -1,0 +1,76 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #8C4B2F; font-family: "Nunito", sans-serif; }
+    #s1-cam { position: absolute; inset: 0; transform-origin: 750px 600px; }
+    .s1-sky { position: absolute; left: 0; top: 0; width: 1920px; height: 70px; background: #F6B775; }
+    .s1-awning { position: absolute; left: 0; top: 70px; width: 1920px; height: 170px;
+      background: repeating-linear-gradient(90deg, #E8742A 0 96px, #FBF1DE 96px 192px); }
+    .s1-awning-edge { position: absolute; left: 0; top: 240px; width: 1920px; height: 26px;
+      background: radial-gradient(circle at 48px 0, #E8742A 47px, transparent 48px) 0 0 / 96px 26px repeat-x; }
+    .s1-sign { position: absolute; left: 520px; top: 104px; width: 880px; height: 104px; background: #3B2416; border-radius: 10px;
+      color: #F2B33D; font-weight: 900; font-size: 60px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+    .s1-window { position: absolute; left: 190px; top: 310px; width: 1120px; height: 620px; background: #3B2416; border-radius: 8px; }
+    .s1-glass { position: absolute; left: 24px; top: 24px; right: 24px; bottom: 24px; overflow: hidden;
+      background: linear-gradient(180deg, #2A1810, #3D2618); }
+    .s1-glare { position: absolute; left: 520px; top: -200px; width: 120px; height: 1000px; background: rgba(255,255,255,0.07); transform: rotate(24deg); }
+    .s1-glare.b { left: 680px; width: 40px; }
+    .s1-shelf { position: absolute; left: 40px; right: 40px; top: 440px; height: 22px; background: #6B4226; border-radius: 4px; }
+    .s1-crs { position: absolute; top: 352px; width: 170px; height: 102px; }
+    .s1-door { position: absolute; left: 1430px; top: 310px; width: 320px; height: 690px; background: #3B2416; border-radius: 8px 8px 0 0; }
+    .s1-door-glass { position: absolute; left: 30px; top: 30px; width: 260px; height: 380px; background: #2A1810; border-radius: 4px; overflow: hidden; }
+    .s1-handle { position: absolute; left: 36px; top: 470px; width: 18px; height: 70px; background: #D9A441; border-radius: 9px; }
+    .s1-bell { position: absolute; left: 1446px; top: 270px; width: 60px; height: 70px; transform-origin: 30px 0; }
+    .s1-pave { position: absolute; left: 0; top: 1000px; width: 1920px; height: 80px; background: #B9A58C; }
+    .s1-clock { position: absolute; left: 960px; top: 60px; width: 150px; height: 150px; border-radius: 50%; background: #FBF1DE; border: 10px solid #6B4226; }
+    .s1-hand { position: absolute; left: 65px; bottom: 65px; width: 0; height: 0; }
+    .s1-hand i { position: absolute; left: -4px; bottom: 0; width: 8px; background: #1B1410; border-radius: 4px; }
+    .s1-line { position: absolute; left: 70px; color: #FBF1DE; font-weight: 900; font-size: 76px; letter-spacing: -0.01em; white-space: nowrap; }
+    .s1-line span { display: inline-block; }
+    #s1-l1 span, #s1-l2 span { opacity: 0; filter: blur(8px); }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1920" data-height="1080">
+    <div id="s1-cam">
+      <div class="s1-sky"></div>
+      <div class="s1-awning"></div>
+      <div class="s1-awning-edge"></div>
+      <div class="s1-sign" id="s1-sign" data-var-text="shopName">LE FOURNIL D'AWA</div>
+      <div class="s1-window">
+        <div class="s1-glass">
+          <div class="s1-glare"></div><div class="s1-glare b"></div>
+          <div class="s1-clock">
+            <div class="s1-hand" id="s1-hour" style="rotate: 211deg"><i style="height: 38px"></i></div>
+            <div class="s1-hand" id="s1-min"><i style="height: 58px"></i></div>
+          </div>
+          <div class="s1-shelf"></div>
+          <svg class="s1-crs" style="left: 80px" viewBox="0 0 200 120"><use href="#s1-croissant"/></svg>
+          <svg class="s1-crs" style="left: 280px" viewBox="0 0 200 120"><use href="#s1-croissant"/></svg>
+          <svg class="s1-crs" style="left: 480px" viewBox="0 0 200 120"><use href="#s1-croissant"/></svg>
+          <svg class="s1-crs" style="left: 680px" viewBox="0 0 200 120"><use href="#s1-croissant"/></svg>
+          <svg class="s1-crs" style="left: 880px" viewBox="0 0 200 120"><use href="#s1-croissant"/></svg>
+          <div class="s1-line" id="s1-l1" style="top: 70px"><span>De</span> <span>bons</span> <span>croissants.</span></div>
+          <div class="s1-line" id="s1-l2" style="top: 170px; color: #F2B33D"><span>Une</span> <span>boutique</span> <span>vide.</span></div>
+        </div>
+      </div>
+      <div class="s1-door"><div class="s1-door-glass"><div class="s1-glare" style="left: 90px"></div></div><div class="s1-handle"></div></div>
+      <svg class="s1-bell" id="s1-bell" viewBox="0 0 60 70"><rect x="27" y="0" width="6" height="14" fill="#6B4226"/><path d="M10 52 Q10 16 30 14 Q50 16 50 52 Z" fill="#D9A441"/><rect x="6" y="50" width="48" height="6" rx="3" fill="#B8862E"/><circle cx="30" cy="62" r="6" fill="#B8862E"/></svg>
+      <div class="s1-pave"></div>
+    </div>
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <g id="s1-croissant">
+          <path d="M8 92 Q14 42 58 30 Q100 6 142 30 Q186 42 192 92 Q170 74 150 76 Q138 102 100 104 Q62 102 50 76 Q30 74 8 92 Z" fill="#F2B33D"/>
+          <path d="M58 30 Q66 60 50 76 M100 12 Q104 60 100 104 M142 30 Q134 60 150 76" stroke="#C8782E" stroke-width="7" fill="none" stroke-linecap="round"/>
+        </g>
+      </defs>
+    </svg>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s1-cam", { scale: 1.15 }, { scale: 1, duration: 1.8, ease: "expo.out" }, 0);
+    tl.fromTo("#s1-min", { rotate: 12 }, { rotate: 18, duration: 0.12, ease: "back.out(3)" }, 2.6);
+    tl.to("#s1-l1 span", { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out", stagger: 0.07 }, 1.6);
+    tl.to("#s1-l2 span", { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out", stagger: 0.07 }, 3.3);
+    tl.to("#s1-cam", { scale: 2.6, filter: "blur(10px)", duration: 0.5, ease: "power3.in" }, 5.7);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>

@@ -1,0 +1,40 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #2A1810; font-family: "Nunito", sans-serif; }
+    #s2-world { position: absolute; inset: 0; }
+    .s2-light { position: absolute; left: -200px; top: -150px; width: 1300px; height: 900px;
+      background: radial-gradient(ellipse at center, rgba(242,179,61,0.16), rgba(242,179,61,0) 65%); }
+    .s2-shelf { position: absolute; left: 150px; top: 452px; width: 800px; height: 34px; background: #6B4226; border-radius: 6px; }
+    #s2-crs { position: absolute; left: 210px; top: 150px; width: 520px; height: 312px; }
+    #s2-q { position: absolute; left: 860px; top: 230px; color: #FBF1DE; font-weight: 900; font-size: 72px; white-space: nowrap; }
+    #s2-q span { display: inline-block; }
+    #s2-q .ok { color: #F2B33D; }
+    #s2-big { position: absolute; left: 192px; top: 560px; font-family: "Archivo Black", sans-serif; color: #FBF1DE;
+      font-size: 230px; line-height: 0.92; letter-spacing: -0.01em; white-space: nowrap; }
+    #s2-big .b2 { display: block; font-size: 128px; color: #F2B33D; margin-top: 12px; }
+    #s2-flood { position: absolute; left: 170px; top: 6px; width: 600px; height: 600px; border-radius: 50%; background: #FFD23F; }
+    #s2-q span { opacity: 0; filter: blur(8px); }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1920" data-height="1080">
+    <div id="s2-world">
+      <div class="s2-light" data-layout-ignore></div>
+      <div class="s2-shelf"></div>
+      <svg id="s2-crs" viewBox="0 0 200 120">
+        <path d="M8 92 Q14 42 58 30 Q100 6 142 30 Q186 42 192 92 Q170 74 150 76 Q138 102 100 104 Q62 102 50 76 Q30 74 8 92 Z" fill="#F2B33D"/>
+        <path d="M58 30 Q66 60 50 76 M100 12 Q104 60 100 104 M142 30 Q134 60 150 76" stroke="#C8782E" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div id="s2-q"><span>Le</span> <span>produit ?</span> <span class="ok">Excellent.</span></div>
+      <div id="s2-big"><span class="b1">PERSONNE</span><span class="b2">NE LE SAIT.</span></div>
+    </div>
+    <div id="s2-flood" data-layout-ignore></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s2-world", { scale: 1.25, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0);
+    tl.to("#s2-q span", { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out", stagger: 0.12 }, 1.2);
+    tl.fromTo("#s2-big .b1", { opacity: 0, scale: 1.12, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, duration: 0.25, ease: "power4.out" }, 2.4);
+    tl.fromTo("#s2-big .b2", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out" }, 2.75);
+    tl.fromTo("#s2-flood", { scale: 0 }, { scale: 7, duration: 0.5, ease: "power2.inOut" }, 3.7);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>

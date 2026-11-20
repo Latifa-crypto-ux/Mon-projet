@@ -1,0 +1,68 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; background: #1F9D63; font-family: "Nunito", sans-serif; }
+    #s7-world { position: absolute; inset: 0; background: #8C4B2F; }
+    .s7-sky { position: absolute; left: 0; top: 0; width: 1920px; height: 70px; background: #9FD3F0; }
+    .s7-awning { position: absolute; left: 0; top: 70px; width: 1920px; height: 170px;
+      background: repeating-linear-gradient(90deg, #E8742A 0 96px, #FBF1DE 96px 192px); }
+    .s7-awning-edge { position: absolute; left: 0; top: 240px; width: 1920px; height: 26px;
+      background: radial-gradient(circle at 48px 0, #E8742A 47px, transparent 48px) 0 0 / 96px 26px repeat-x; }
+    .s7-sign { position: absolute; left: 520px; top: 104px; width: 880px; height: 104px; background: #3B2416; border-radius: 10px;
+      color: #F2B33D; font-weight: 900; font-size: 60px; letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; }
+    .s7-window { position: absolute; left: 190px; top: 310px; width: 1120px; height: 620px; background: #3B2416; border-radius: 8px; }
+    .s7-glass { position: absolute; left: 24px; top: 24px; right: 24px; bottom: 24px; overflow: hidden;
+      background: linear-gradient(180deg, #F7C770, #E9A646); }
+    .s7-glare { position: absolute; left: 520px; top: -200px; width: 120px; height: 1000px; background: rgba(255,255,255,0.14); transform: rotate(24deg); }
+    #s7-l1 { position: absolute; left: 70px; top: 60px; color: #3B2416; font-weight: 900; font-size: 84px; white-space: nowrap; }
+    #s7-l1 span { display: inline-block; }
+    .s7-door { position: absolute; left: 1430px; top: 310px; width: 320px; height: 690px; background: #3B2416; border-radius: 8px 8px 0 0; }
+    .s7-door-glass { position: absolute; left: 30px; top: 30px; width: 260px; height: 380px; background: #F7C770; border-radius: 4px; }
+    #s7-bell { position: absolute; left: 1446px; top: 270px; width: 60px; height: 70px; }
+    .s7-pave { position: absolute; left: 0; top: 1000px; width: 1920px; height: 80px; background: #B9A58C; }
+    .s7-p { position: absolute; bottom: 40px; }
+    .s7-p .h { position: absolute; left: 50%; width: 96px; height: 96px; margin-left: -48px; border-radius: 50%; background: #1B1410; }
+    .s7-p .b { position: absolute; bottom: 0; left: 0; width: 100%; border-radius: 70px 70px 0 0; }
+    #s7-l1 span { opacity: 0; filter: blur(8px); }
+  </style>
+  <div id="root" data-composition-id="s7" data-width="1920" data-height="1080">
+    <div id="s7-world">
+      <div class="s7-sky"></div>
+      <div class="s7-awning"></div>
+      <div class="s7-awning-edge"></div>
+      <div class="s7-sign" data-var-text="shopName">LE FOURNIL D'AWA</div>
+      <div class="s7-window"><div class="s7-glass"><div class="s7-glare"></div>
+        <div id="s7-l1"><span>Le</span> <span>lendemain…</span></div>
+      </div></div>
+      <div class="s7-door"><div class="s7-door-glass"></div></div>
+      <svg id="s7-bell" viewBox="0 0 60 70"><rect x="27" y="0" width="6" height="14" fill="#6B4226"/><path d="M10 52 Q10 16 30 14 Q50 16 50 52 Z" fill="#D9A441"/><rect x="6" y="50" width="48" height="6" rx="3" fill="#B8862E"/><circle cx="30" cy="62" r="6" fill="#B8862E"/></svg>
+      <div class="s7-pave"></div>
+      <div class="s7-queue">
+        <div class="s7-p" style="left: 1450px; width: 190px; height: 440px"><div class="h" style="top: -10px"></div><div class="b" style="height: 340px; background: #2337C6"></div></div>
+        <div class="s7-p" style="left: 1240px; width: 180px; height: 400px"><div class="h" style="top: -10px"></div><div class="b" style="height: 300px; background: #FF6F59"></div></div>
+        <div class="s7-p" style="left: 1030px; width: 200px; height: 460px"><div class="h" style="top: -10px"></div><div class="b" style="height: 360px; background: #FFD23F"></div></div>
+        <div class="s7-p" style="left: 830px; width: 170px; height: 380px"><div class="h" style="top: -10px"></div><div class="b" style="height: 280px; background: #1F9D63"></div></div>
+        <div class="s7-p" style="left: 620px; width: 190px; height: 430px"><div class="h" style="top: -10px"></div><div class="b" style="height: 330px; background: #FBF1DE"></div></div>
+        <div class="s7-p" style="left: 410px; width: 180px; height: 410px"><div class="h" style="top: -10px"></div><div class="b" style="height: 310px; background: #E8742A"></div></div>
+        <div class="s7-p" style="left: 200px; width: 190px; height: 450px"><div class="h" style="top: -10px"></div><div class="b" style="height: 350px; background: #2337C6"></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s7-world", { clipPath: "circle(0px at 1664px 730px)" }, { clipPath: "circle(2300px at 1664px 730px)", duration: 0.45, ease: "power3.in" }, 0);
+    tl.fromTo(".s7-p", { x: 1500, opacity: 1 }, { x: 0, duration: 1.1, ease: "expo.out", stagger: 0.09 }, 0.2);
+    tl.to("#s7-l1 span", { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out", stagger: 0.1 }, 0.6);
+    const ring = (t) => {
+      tl.to("#s7-bell", { rotation: 24, duration: 0.1, ease: "power2.out" }, t);
+      tl.to("#s7-bell", { rotation: -18, duration: 0.18, ease: "power1.inOut" }, t + 0.1);
+      tl.to("#s7-bell", { rotation: 10, duration: 0.18, ease: "power1.inOut" }, t + 0.28);
+      tl.to("#s7-bell", { rotation: -5, duration: 0.18, ease: "power1.inOut" }, t + 0.46);
+      tl.to("#s7-bell", { rotation: 0, duration: 0.2, ease: "power1.out" }, t + 0.64);
+    };
+    tl.set("#s7-bell", { rotation: 0, transformOrigin: "50% 0%" }, 0);
+    ring(0.3);
+    ring(2.4);
+    tl.to("#s7-world", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 3.6);
+    window.__timelines["s7"] = tl;
+  </script>
+</template>
